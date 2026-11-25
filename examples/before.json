@@ -1,0 +1,1 @@
+{"tools":[{"name":"search_catalog","inputSchema":{"type":"object","properties":{"q":{"type":"string"}}}}]}

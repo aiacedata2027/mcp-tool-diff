@@ -1,0 +1,25 @@
+# MCP Tool Diff
+
+[Português](README.pt-BR.md)
+
+Review what changed between two saved MCP tool inventories before shipping an agent integration. The report lists added and removed tool names and changed field names.
+
+## Quick start
+
+Run from the repository root with Python 3.9 or later.
+
+```bash
+python3 -m mcp_tool_diff examples/before.json examples/after.json
+```
+
+Save the complete results of two `tools/list` calls as UTF-8 JSON. A bare response result or a successful JSON-RPC 2.0 envelope works. If the server paginates, retrieve every page and combine the `tools` arrays before comparing. Use the same scopes in both captures because the server can expose different tools for different callers.
+
+The comparison covers title, description, input and output schemas, annotations, and execution. It ignores JSON object key order and keeps array order. Status 0 means unchanged, 1 means changes, and 2 means input could not be compared. The example exits 1. Review changes before deciding whether they break an integration. The tool reads saved files, makes no connections, and invokes no tools.
+
+## Contributing
+
+Choose a [beginner task](https://github.com/henrivalle/mcp-tool-diff/contribute) and use a small synthetic file to show the expected result. [Contributing guide](CONTRIBUTING.md) · [MIT license](LICENSE)
+
+## References
+
+[MCP Tools specification](https://modelcontextprotocol.io/specification/2026-07-28/server/tools) · [MCP Inspector](https://github.com/modelcontextprotocol/inspector)
