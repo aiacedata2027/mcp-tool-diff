@@ -10,4 +10,12 @@ Na raiz do repositório, use Python 3.9 ou posterior.
 python3 -m mcp_tool_diff examples/before.json examples/after.json
 ```
 
+## Resultados paginados
+
+O [exemplo de paginação](README.md#comparing-paginated-results) usa duas páginas
+fictícias. A primeira contém `nextCursor` e, sozinha, é rejeitada com código de
+saída `2`. Depois de coletar todas as páginas, reúna os itens dos arrays `tools`
+em um único array e não inclua `nextCursor` no arquivo final. Comparar esse
+arquivo com ele mesmo retorna `0` e mostra que não há mudanças.
+
 [Como contribuir](CONTRIBUTING.md) · [Licença MIT](LICENSE)
